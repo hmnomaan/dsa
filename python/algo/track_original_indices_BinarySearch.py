@@ -46,13 +46,21 @@ def binary_search_index(sorted_arr,target):
     return -1
 
 nums=[2,3,42,34,55,66,33,22,33,3,2,34,54,43,23,44,55,66]
-target=66
 
+# target=int(input(f"type here the input : "))
+target = int(input("Type an integer here: "))
+# print(f"You entered: {target}")
+# original index nums pairs 
 index_nums=[(value,idx) for idx,value in enumerate(nums)]
 print(f"vaule id pair old order : {index_nums}")
+# changed the first value from the value index pair 
 sorted_index_nums=sorted(index_nums,key=lambda x:x[0])
 print(f"vaule id pair sorted order : {sorted_index_nums}" )
+# repositioned_index after the order of valued changed
+repositioned_index=[(value1[0],idx1) for idx1,value1 in enumerate(sorted_index_nums)]
+print(f"vaule id pair new order : {repositioned_index}")
 result=binary_search_index(sorted_index_nums,target)
+
 
 if result != -1:
     print(f"Element {target} , found at index of {result}")
